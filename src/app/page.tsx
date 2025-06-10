@@ -6,6 +6,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Navigation from "@/components/navigation";
 import CustomScrollIndicator from '@/components/custom-scroll-indicator'
 import Hero from "@/components/hero";
+import About from "@/components/about";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -20,6 +21,7 @@ export default function Home() {
       <CustomScrollIndicator />
       <main>
         <Hero/>
+        <About />
       </main>
     </>
   );
