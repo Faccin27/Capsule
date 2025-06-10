@@ -10,6 +10,7 @@ import About from "@/components/about";
 import CapsuleShowcase from "@/components/capsule-showcase";
 import Activities from "@/components/activities";
 import Applications from "@/components/applications";
+import Contact from "@/components/contact";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -28,6 +29,7 @@ export default function Home() {
         <CapsuleShowcase />
         <Activities />
         <Applications />
+        <Contact/>
       </main>
     </>
   );
