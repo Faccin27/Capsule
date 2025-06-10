@@ -47,17 +47,6 @@ export default function Activities() {
       },
     });
 
-    Array.from(grid.children).forEach((card, index) => {
-      gsap.to(card, {
-        y: -10,
-        duration: 2 + index * 0.3,
-        repeat: -1,
-        yoyo: true,
-        ease: "power2.inOut",
-        delay: index * 0.2,
-      });
-    });
-
     return () => {
       ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
     };
