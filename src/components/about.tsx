@@ -101,7 +101,7 @@ export default function About() {
               {features.map((feature, index) => (
                 <div
                   key={index}
-                  className="bg-white rounded-3xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-gray-200"
+                  className="bg-white rounded-3xl p-8 shadow-lg hover:shadow-xl transition-transform  duration-300 hover:-translate-y-2 border border-gray-200"
                 >
                   <div className="text-gray-700 mb-4">{feature.icon}</div>
                   <h3 className="text-xl font-bold text-gray-900 mb-3">

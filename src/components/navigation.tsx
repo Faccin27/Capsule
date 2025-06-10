@@ -37,9 +37,9 @@ export default function Navigation() {
       <div className="fixed bottom-8 left-1/2 transform -translate-x-1/2 z-50 rounded-full shadow-2xl">
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className={`flex items-center justify-center w-16 h-16 rounded-full shadow-lg transition-all duration-300 backdrop-blur-md border border-white/20 ${
+          className={`flex items-center justify-center w-16 h-16 cursor-pointer  rounded-full shadow-lg transition-all duration-300 backdrop-blur-md border border-white/20 ${
             isOpen
-              ? "bg-gray-900/80 scale-110 text-white rotate-90"
+              ? "bg-gray-900/80 scale-110 text-white rotate-90 hover:bg-gray-900/50"
               : "bg-white/10 hover:scale-110 opacity-80 text-gray-500 hover:bg-white/20"
           }`}
         >

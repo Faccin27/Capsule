@@ -417,7 +417,7 @@ export default function Contact() {
                 {contactInfo.map((contact, index) => (
                   <div
                     key={index}
-                    className="flex items-center space-x-4 p-4 bg-gray-700/50 rounded-2xl hover:bg-gray-700/70 transition-colors duration-300 border border-gray-600"
+                    className="flex items-center space-x-4 p-4 bg-gray-700/50 rounded-2xl hover:bg-gray-700/70  transition-colors duration-300 border border-gray-600"
                   >
                     <div className="w-12 h-12 rounded-xl bg-gray-700 flex items-center justify-center text-white">
                       {contact.icon}
