@@ -4,10 +4,11 @@ import { useEffect } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Navigation from "@/components/navigation";
-import CustomScrollIndicator from '@/components/custom-scroll-indicator'
+import CustomScrollIndicator from "@/components/custom-scroll-indicator";
 import Hero from "@/components/hero";
 import About from "@/components/about";
 import CapsuleShowcase from "@/components/capsule-showcase";
+import Activities from "@/components/activities";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -21,9 +22,10 @@ export default function Home() {
       <Navigation />
       <CustomScrollIndicator />
       <main>
-        <Hero/>
+        <Hero />
         <About />
         <CapsuleShowcase />
+        <Activities />
       </main>
     </>
   );
