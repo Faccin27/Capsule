@@ -102,9 +102,7 @@ html {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-}
-
-/* Custom scroll indicator */
+}/* Custom scroll indicator */
 .custom-scroll-indicator {
   position: fixed;
   left: 30px;
@@ -125,6 +123,22 @@ html {
   background: rgb(17 24 39);
   border-radius: 50px;
   transition: background-color 0.2s ease;
+}
+
+/* Responsivo para mobile */
+@media (max-width: 768px) {
+  .custom-scroll-indicator {
+    top: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 70vw;
+    height: 6px;
+  }
+
+  .custom-scroll-thumb {
+    width: 0; /* vamos manipular depois via JS */
+    height: 100%;
+  }
 }
 
 .custom-scroll-thumb:hover {
