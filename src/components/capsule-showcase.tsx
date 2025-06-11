@@ -1,14 +1,14 @@
-"use client";
+"use client"
 
-import { useEffect, useRef } from "react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { Button } from "@/components/ui/button";
-import { ArrowRight, Star, Wifi, Zap, Droplets } from "lucide-react";
+import { useEffect, useRef } from "react"
+import { gsap } from "gsap"
+import { ScrollTrigger } from "gsap/ScrollTrigger"
+import { Button } from "@/components/ui/button"
+import { ArrowRight, Star, Wifi, Zap, Droplets } from "lucide-react"
 
 export default function CapsuleShowcase() {
-  const sectionRef = useRef<HTMLDivElement>(null);
-  const rightSideRef = useRef<HTMLDivElement>(null);
+  const sectionRef = useRef<HTMLDivElement>(null)
+  const rightSideRef = useRef<HTMLDivElement>(null)
 
   const capsules = [
     {
@@ -155,45 +155,43 @@ export default function CapsuleShowcase() {
         warranty: "10 years",
       },
     },
-  ];
+  ]
 
   useEffect(() => {
-    const section = sectionRef.current;
-    const rightSide = rightSideRef.current;
+    const section = sectionRef.current
+    const rightSide = rightSideRef.current
 
-    if (!section || !rightSide) return;
+    if (!section || !rightSide) return
 
-    gsap.registerPlugin(ScrollTrigger);
+    gsap.registerPlugin(ScrollTrigger)
 
     if (rightSide.children.length > 0) {
       gsap.set(rightSide.children[0], {
-        x: "0%", 
-      });
+        x: "0%",
+      })
     }
 
     capsules.forEach((capsule, index) => {
-      const capsuleContent = section.querySelector(
-        `[data-capsule="${capsule.id}"]`
-      );
+      const capsuleContent = section.querySelector(`[data-capsule="${capsule.id}"]`)
 
-      if (!capsuleContent) return;
+      if (!capsuleContent) return
 
-      const imageElement = document.createElement("div");
-      imageElement.className = "absolute inset-0 w-full h-full";
-      imageElement.style.zIndex = (capsules.length - index).toString();
+      const imageElement = document.createElement("div")
+      imageElement.className = "absolute inset-0 w-full h-full"
+      imageElement.style.zIndex = (capsules.length - index).toString()
       imageElement.innerHTML = `
     <img 
       src="${capsule.image}" 
       alt="${capsule.name}"
       class="w-full h-full object-cover rounded-l-[50px]"
     />
-  `;
+  `
 
       gsap.set(imageElement, {
         x: index === 0 ? "0%" : "100%",
-      });
+      })
 
-      rightSide.appendChild(imageElement);
+      rightSide.appendChild(imageElement)
 
       ScrollTrigger.create({
         trigger: capsuleContent,
@@ -204,7 +202,7 @@ export default function CapsuleShowcase() {
             x: "0%",
             duration: 1,
             ease: "power2.out",
-          });
+          })
         },
         onLeave: () => {
           if (index < capsules.length - 1) {
@@ -212,7 +210,7 @@ export default function CapsuleShowcase() {
               x: "-100%",
               duration: 1,
               ease: "power2.inOut",
-            });
+            })
           }
         },
         onEnterBack: () => {
@@ -220,7 +218,7 @@ export default function CapsuleShowcase() {
             x: "0%",
             duration: 1,
             ease: "power2.out",
-          });
+          })
         },
         onLeaveBack: () => {
           if (index > 0) {
@@ -228,16 +226,16 @@ export default function CapsuleShowcase() {
               x: "100%",
               duration: 1,
               ease: "power2.inOut",
-            });
+            })
           }
         },
-      });
-    });
+      })
+    })
 
     return () => {
-      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
-    };
-  }, []);
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill())
+    }
+  }, [])
 
   return (
     <section id="capsules" ref={sectionRef} className="relative">
@@ -248,20 +246,17 @@ export default function CapsuleShowcase() {
             <span className="block text-gray-300">Capsule Collection</span>
           </h2>
           <p className="text-xl text-gray-400 leading-relaxed">
-            Each capsule is meticulously designed for specific environments and
-            lifestyles, offering unparalleled comfort and sustainability.
+            Each capsule is meticulously designed for specific environments and lifestyles, offering unparalleled
+            comfort and sustainability.
           </p>
         </div>
       </div>
 
-      <div className="relative flex">
+      {/* Desktop Layout */}
+      <div className="relative hidden lg:flex">
         <div className="w-1/2 pr-8">
           {capsules.map((capsule, index) => (
-            <div
-              key={capsule.id}
-              data-capsule={capsule.id}
-              className="min-h-screen flex items-center py-20 px-24"
-            >
+            <div key={capsule.id} data-capsule={capsule.id} className="min-h-screen flex items-center py-20 px-24">
               <div className="max-w-2xl">
                 <div className="inline-block mb-6">
                   <span className="bg-gray-900 text-white px-6 py-3 rounded-full text-lg font-bold">
@@ -269,47 +264,31 @@ export default function CapsuleShowcase() {
                   </span>
                 </div>
 
-                <h3 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight">
-                  {capsule.name}
-                </h3>
+                <h3 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight">{capsule.name}</h3>
 
-                <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-                  {capsule.description}
-                </p>
+                <p className="text-xl text-gray-600 mb-8 leading-relaxed">{capsule.description}</p>
 
                 <div className="grid grid-cols-2 gap-4 mb-8">
                   <div className="bg-gray-50 rounded-2xl p-4 transition-all duration-300 hover:translate-x-2 hover:shadow-lg">
                     <div className="text-sm text-gray-500 mb-1">Size</div>
-                    <div className="text-lg font-bold text-gray-900">
-                      {capsule.specs.size}
-                    </div>
+                    <div className="text-lg font-bold text-gray-900">{capsule.specs.size}</div>
                   </div>
                   <div className="bg-gray-50 rounded-2xl p-4  transition-all duration-300 hover:translate-x-2 hover:shadow-lg">
                     <div className="text-sm text-gray-500 mb-1">Capacity</div>
-                    <div className="text-lg font-bold text-gray-900">
-                      {capsule.specs.capacity}
-                    </div>
+                    <div className="text-lg font-bold text-gray-900">{capsule.specs.capacity}</div>
                   </div>
                   <div className="bg-gray-50 rounded-2xl p-4  transition-all duration-300 hover:translate-x-2 hover:shadow-lg">
-                    <div className="text-sm text-gray-500 mb-1">
-                      Installation
-                    </div>
-                    <div className="text-lg font-bold text-gray-900 ">
-                      {capsule.specs.installation}
-                    </div>
+                    <div className="text-sm text-gray-500 mb-1">Installation</div>
+                    <div className="text-lg font-bold text-gray-900 ">{capsule.specs.installation}</div>
                   </div>
                   <div className="bg-gray-50 rounded-2xl p-4  transition-all duration-300 hover:translate-x-2 hover:shadow-lg">
                     <div className="text-sm text-gray-500 mb-1">Warranty</div>
-                    <div className="text-lg font-bold text-gray-900">
-                      {capsule.specs.warranty}
-                    </div>
+                    <div className="text-lg font-bold text-gray-900">{capsule.specs.warranty}</div>
                   </div>
                 </div>
 
                 <div className="mb-8">
-                  <h4 className="text-xl font-bold text-gray-900 mb-4">
-                    Key Features
-                  </h4>
+                  <h4 className="text-xl font-bold text-gray-900 mb-4">Key Features</h4>
                   <div className="grid grid-cols-2 gap-3">
                     {capsule.features.map((feature, featureIndex) => (
                       <div
@@ -320,12 +299,8 @@ export default function CapsuleShowcase() {
                           {feature.icon}
                         </div>
                         <div className="min-w-0">
-                          <div className="font-semibold text-gray-900 text-sm">
-                            {feature.name}
-                          </div>
-                          <div className="text-xs text-gray-600 truncate">
-                            {feature.description}
-                          </div>
+                          <div className="font-semibold text-gray-900 text-sm">{feature.name}</div>
+                          <div className="text-xs text-gray-600 truncate">{feature.description}</div>
                         </div>
                       </div>
                     ))}
@@ -364,15 +339,95 @@ export default function CapsuleShowcase() {
 
         <div className="w-1/2">
           <div className="sticky top-0 h-screen overflow-hidden rounded-l-[50px]">
-            <div
-              ref={rightSideRef}
-              className="relative w-full h-full bg-transparent "
-            >
-              {/* Images são adicionaas dinamicamente aq */}
+            <div ref={rightSideRef} className="relative w-full h-full bg-transparent ">
+              {/* Images são adicionadas dinamicamente aqui */}
             </div>
           </div>
         </div>
       </div>
+
+      {/* Mobile Layout */}
+      <div className="lg:hidden">
+        {capsules.map((capsule, index) => (
+          <div key={capsule.id} className="min-h-screen bg-gray-50 py-12 px-6">
+            {/* Mobile Image */}
+            <div className="w-full h-80 mb-8 rounded-3xl overflow-hidden">
+              <img
+                src={capsule.image || "/placeholder.svg"}
+                alt={capsule.name}
+                className="w-full h-full object-cover"
+              />
+            </div>
+
+            {/* Mobile Content */}
+            <div className="max-w-lg mx-auto">
+              <div className="inline-block mb-6">
+                <span className="bg-gray-900 text-white px-6 py-3 rounded-full text-lg font-bold">{capsule.price}</span>
+              </div>
+
+              <h3 className="text-4xl font-bold text-gray-900 mb-6 leading-tight">{capsule.name}</h3>
+
+              <p className="text-lg text-gray-600 mb-8 leading-relaxed">{capsule.description}</p>
+
+              <div className="grid grid-cols-2 gap-3 mb-8">
+                <div className="bg-white rounded-2xl p-4 shadow-sm border border-gray-100">
+                  <div className="text-sm text-gray-500 mb-1">Size</div>
+                  <div className="text-lg font-bold text-gray-900">{capsule.specs.size}</div>
+                </div>
+                <div className="bg-white rounded-2xl p-4 shadow-sm border border-gray-100">
+                  <div className="text-sm text-gray-500 mb-1">Capacity</div>
+                  <div className="text-lg font-bold text-gray-900">{capsule.specs.capacity}</div>
+                </div>
+                <div className="bg-white rounded-2xl p-4 shadow-sm border border-gray-100">
+                  <div className="text-sm text-gray-500 mb-1">Installation</div>
+                  <div className="text-lg font-bold text-gray-900">{capsule.specs.installation}</div>
+                </div>
+                <div className="bg-white rounded-2xl p-4 shadow-sm border border-gray-100">
+                  <div className="text-sm text-gray-500 mb-1">Warranty</div>
+                  <div className="text-lg font-bold text-gray-900">{capsule.specs.warranty}</div>
+                </div>
+              </div>
+
+              <div className="mb-8">
+                <h4 className="text-xl font-bold text-gray-900 mb-4">Key Features</h4>
+                <div className="grid grid-cols-1 gap-3">
+                  {capsule.features.map((feature, featureIndex) => (
+                    <div
+                      key={featureIndex}
+                      className="flex items-center space-x-3 bg-white rounded-xl p-4 shadow-sm border border-gray-100"
+                    >
+                      <div className="w-10 h-10 bg-gray-900 rounded-lg flex items-center justify-center text-white flex-shrink-0">
+                        {feature.icon}
+                      </div>
+                      <div className="min-w-0">
+                        <div className="font-semibold text-gray-900">{feature.name}</div>
+                        <div className="text-sm text-gray-600">{feature.description}</div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="flex flex-col gap-4">
+                <Button
+                  size="lg"
+                  className="bg-gray-900 hover:bg-gray-800 text-white rounded-full px-8 py-4 text-lg font-semibold w-full"
+                >
+                  Configure Now
+                  <ArrowRight className="ml-2 w-5 h-5" />
+                </Button>
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="border-gray-300 text-gray-900 hover:bg-gray-50 rounded-full px-8 py-4 text-lg font-semibold w-full"
+                >
+                  Download Brochure
+                </Button>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
     </section>
-  );
+  )
 }

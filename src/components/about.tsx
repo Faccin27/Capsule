@@ -116,7 +116,7 @@ export default function About() {
 
         <div
           ref={statsRef}
-          className="bg-white rounded-3xl p-12 shadow-2xl border border-gray-200"
+          className="bg-white rounded-3xl p-12 shadow-2xl border border-gray-200 transition-all duration-1000 hover:bg-gray-300 "
         >
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
             {stats.map((stat, index) => (
