@@ -1,36 +1,96 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🏠 CapsuleLiving – O Futuro da Habitação Modular
 
-## Getting Started
+Landing page moderna, responsiva e visualmente imersiva desenvolvida para a startup **CapsuleLiving**, focada em moradias modulares sustentáveis e inteligentes. Utiliza **Next.js**, **GSAP + ScrollTrigger** e um design orientado à performance e conversão.
 
-First, run the development server:
+---
+
+## 📸 Screenshots
+
+| Home | Sobre | Cápsulas |
+|------|---------------------|------------|
+| ![Home](/public/images/screenshot1.png) | ![Capsules](/public/images/screenshot2.png) | ![Aplicações](/public/images/screenshot3.png) |
+
+| Possibilidades | Aplicações | Formulário |
+|----------------|------------------------|----------------|
+| ![Estilo](/public/images/screenshot4.png) | ![Contato](/public/images/screenshot5.png) | ![Mobile](/public/images/screenshot6.png) |
+
+---
+
+## 🚀 Tecnologias Utilizadas
+
+- **[Next.js](https://nextjs.org/)** – Framework React para SSR, performance e SEO.
+- **[GSAP](https://greensock.com/gsap/)** – Biblioteca para animações suaves.
+- **[GSAP ScrollTrigger](https://greensock.com/scrolltrigger/)** – Plugin para animações baseadas no scroll.
+- **[Tailwind CSS](https://tailwindcss.com/)** – Framework utilitário para estilização rápida e responsiva.
+
+---
+
+## 📂 Estrutura do Projeto
 
 ```bash
+.
+├── public/
+│   └── images/            # Assets e imagens estáticas
+├── src/
+│   ├── app/               # Páginas da aplicação
+│   ├── components/        # Componentes reutilizáveis
+│   ├── data/              # Dados dinâmicos e mockados
+│   └── lib/               # Integrações com GSAP e helpers
+└── README.md
+````
+
+---
+
+## 🧪 Como Rodar o Projeto
+
+```bash
+# Clone o repositório
+git clone https://github.com/Faccin27/Capsule
+cd capsule
+
+# Instale as dependências
+npm install
+
+# Rode em ambiente de desenvolvimento
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 📦 Build para Produção
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+npm start
+```
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## 📱 Responsividade
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+A página foi desenvolvida com foco em **experiência mobile e desktop**, garantindo carregamento leve, navegação fluida e interações modernas em qualquer dispositivo.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## 💡 Diferenciais
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+* Scroll animado com GSAP ScrollTrigger
+* Design futurista com foco em conversão
+* Integração de mockdata para gerenciamento de cápsulas
+* Layout modular e escalável
+* Animações suaves e navegação intuitiva
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+## 📬 Contato
+
+Caso queira contribuir, utilizar o projeto como base ou sugerir melhorias:
+
+**Email**: [gfaccin27@gmail.com](mailto:gfaccin27@gmail.com)
+**LinkedIn**: [Guilherme Faccin](https://linkedin.com/in/guilherme-faccin)
+
+---
+
+## 🧾 Licença
+
+Este projeto é livre para uso educacional e prototipagem de soluções habitacionais sustentáveis.
